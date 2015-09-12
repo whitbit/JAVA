@@ -1,0 +1,10 @@
+CREATE TABLE `bankapp`.`customer` (
+  `cash` INT NOT NULL,
+  `cardNumber` VARCHAR(45) NOT NULL,
+  `firstName` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(45) NOT NULL,
+  `dateOfB` VARCHAR(45) NOT NULL,
+  `id` INT NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+COMMENT = '( int cash, String cardNumber, String firstName, String lastName, String dateOfB, int id, String address ) ';

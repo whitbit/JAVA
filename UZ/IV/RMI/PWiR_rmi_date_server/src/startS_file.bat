@@ -1,0 +1,1 @@
+java -Djava.rmi.server.codebase=file:///C:\temp\RMI_date_server\bin\ -Djava.rmi.server.hostname=127.0.0.1 -Djava.security.policy=java.policy RMITestServer.MeetingServer

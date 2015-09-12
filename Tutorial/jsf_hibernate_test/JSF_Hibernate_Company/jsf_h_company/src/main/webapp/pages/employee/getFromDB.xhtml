@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>JSF_Hibernate_Company</title>
+</h:head>
+
+
+<body>
+
+	<h:button id="backToIndex" value="Back To Index" outcome="index" />
+	<h:button id="getByBranch" value="Get By Branch"  />
+	<h:form>
+		<h:dataTable id="empList" value="#{employeeDAO.empList}" var="empList" border="1" >
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="name" />
+				</f:facet>
+				<h:outputText value="#{empList.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="surname" />
+				</f:facet>
+				<h:outputText value="#{empList.surname}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="city" />
+				</f:facet>
+				<h:outputText value="#{empList.city}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="age" />
+				</f:facet>
+				<h:outputText value="#{empList.age}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="birthdate" />
+				</f:facet>
+				<h:outputText value="#{empList.birthdate}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="profession" />
+				</f:facet>
+				<h:outputText value="#{empList.profession}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="branch" />
+				</f:facet>
+				<h:outputText value="#{empList.branch}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="salary" />
+				</f:facet>
+				<h:outputText value="#{empList.salary}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>

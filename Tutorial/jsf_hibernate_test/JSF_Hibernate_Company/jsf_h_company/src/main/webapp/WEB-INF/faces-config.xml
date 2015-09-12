@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+
+
+	<managed-bean>
+		<managed-bean-name>employeeDAO</managed-bean-name>
+		<managed-bean-class>jsf_h_company.model.employee.EmployeeDAO</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+
+	<navigation-rule>
+		<from-view-id>/pages/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_S.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_E.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>getByBranch</from-outcome>
+			<to-view-id>/pages/employee/getByBranch.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+	
+	
+	<navigation-rule>
+		<from-view-id>/pages/employee/putToDB.xhtml</from-view-id>	
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_S.xhtml</to-view-id>
+		</navigation-case>		
+		<navigation-case>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_E.xhtml</to-view-id>
+		</navigation-case>	
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/pages/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/employee/back/fromAddE_E.xhtml</from-view-id>	
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/pages/index.xhtml</to-view-id>
+		</navigation-case>		
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/employee/back/fromAddE_S.xhtml</from-view-id>	
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/pages/index.xhtml</to-view-id>
+		</navigation-case>		
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/employee/getFromDB.xhtml</from-view-id>	
+		<navigation-case>
+			<from-outcome>SUCCESS</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_S.xhtml</to-view-id>
+		</navigation-case>		
+		<navigation-case>
+			<from-outcome>ERROR</from-outcome>
+			<to-view-id>/pages/employee/back/fromAddE_E.xhtml</to-view-id>
+		</navigation-case>	
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/pages/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<from-view-id>/pages/employee/getByBranch.xhtml</from-view-id>		
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/pages/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+</faces-config>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12839225897960" configfile="/jsf_h_company/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="payment.xhtml" x="122" y="178" id="pf128417776012122" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="payment.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register.xhtml" x="122" y="562" id="pf128417779137424" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" path="register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="page2.xhtml" x="122" y="946" id="pf128430768814316" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="page2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/index.xhtml" x="554" y="3250" id="pf13176601503780" referenceLink="//@navigationRule.5/@navigationCase.2/@toViewId|" outlinks="pf14397602280388 pf14397602280389 pf14403591774484" inlinks="pf143976022803810 pf143976022803811 pf143976022803812 pf143976022803813 pf14403580160690" path="/pages/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/welcome.xhtml" x="122" y="1330" id="pf13176601503793" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/welcome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="122" y="1714" id="pf13176708779696" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" path="/pages/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/putToDB.xhtml" x="122" y="2482" id="pf14397470765372" referenceLink="//@navigationRule.0/@fromViewId|" path="/pages/putToDB.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="employee/putToDB.xhtml" x="122" y="2098" id="pf14397539774253" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf143976022803814 pf143976022803815 pf143976022803810" path="/pages/employee/putToDB.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="back/fromAddE_S.xhtml.xhtml" x="122" y="2866" id="pf14397539774256" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/back/fromAddE_S.xhtml.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="back/fromAddE_E.xhtml" x="122" y="4018" id="pf14397539774257" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" path="/pages/back/fromAddE_E.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/employee/back/fromAddE_S.xhtml" x="338" y="2866" id="pf143976022803816" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" outlinks="pf143976022803812" inlinks="pf14397602280388 pf143976022803814 pf143976022803817 pf14403580160691" path="/pages/employee/back/fromAddE_S.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/employee/back/fromAddE_E.xhtml" x="338" y="3250" id="pf143976022803818" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" outlinks="pf143976022803811" inlinks="pf14397602280389 pf143976022803815 pf143976022803819 pf14403580160692" path="/pages/employee/back/fromAddE_E.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/employee/getFromDB.xhtml" x="122" y="3250" id="pf143976022803820" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf143976022803817 pf143976022803819 pf143976022803813" path="/pages/employee/getFromDB.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/employee/getByBranch.xhtml" x="122" y="3634" id="pf14403580160693" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf14403580160691 pf14403580160692 pf14403580160690" inlinks="pf14403591774484" path="/pages/employee/getByBranch.xhtml"/>
+  <links id="pf14397602280388" target="pf143976022803816" source="pf13176601503780" outcome="SUCCESS"/>
+  <links id="pf14397602280389" target="pf143976022803818" source="pf13176601503780" outcome="ERROR"/>
+  <links id="pf143976022803814" target="pf143976022803816" source="pf14397539774253" outcome="SUCCESS"/>
+  <links id="pf143976022803815" target="pf143976022803818" source="pf14397539774253" outcome="ERROR"/>
+  <links id="pf143976022803810" target="pf13176601503780" source="pf14397539774253" outcome="index"/>
+  <links id="pf143976022803811" target="pf13176601503780" source="pf143976022803818" outcome="index"/>
+  <links id="pf143976022803812" target="pf13176601503780" source="pf143976022803816" outcome="index"/>
+  <links id="pf143976022803817" target="pf143976022803816" source="pf143976022803820" outcome="SUCCESS"/>
+  <links id="pf143976022803819" target="pf143976022803818" source="pf143976022803820" outcome="ERROR"/>
+  <links id="pf143976022803813" target="pf13176601503780" source="pf143976022803820" outcome="index"/>
+  <links id="pf14403580160691" target="pf143976022803816" source="pf14403580160693" outcome="SUCCESS"/>
+  <links id="pf14403580160692" target="pf143976022803818" source="pf14403580160693" outcome="ERROR"/>
+  <links id="pf14403580160690" target="pf13176601503780" source="pf14403580160693" outcome="index"/>
+  <links id="pf14403591774484" target="pf14403580160693" source="pf13176601503780" outcome="getByBranch"/>
+</pageflow:Pageflow>

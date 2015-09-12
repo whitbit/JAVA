@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12839225897960" configfile="/Elvenar_Tool/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="payment.xhtml" x="122" y="178" id="pf128417776012122" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="payment.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register.xhtml" x="122" y="562" id="pf128417779137424" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" path="register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="page2.xhtml" x="122" y="946" id="pf128430768814316" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="page2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/welcome.xhtml" x="122" y="1330" id="pf13176601503793" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/welcome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="122" y="1714" id="pf13176708779696" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" path="/pages/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/putToDB.xhtml" x="122" y="2098" id="pf14397470765372" referenceLink="//@navigationRule.0/@fromViewId|" path="/pages/putToDB.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="back/fromAddE_S.xhtml.xhtml" x="122" y="2866" id="pf14397539774256" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/back/fromAddE_S.xhtml.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="back/fromAddE_E.xhtml" x="122" y="3635" id="pf14397539774257" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" path="/pages/back/fromAddE_E.xhtml"/>
+</pageflow:Pageflow>

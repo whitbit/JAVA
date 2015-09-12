@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>PMP Test - Get from db</title>
+</h:head>
+
+
+<body>
+<h:button id="backToIndex" value="Back To Index" outcome="index" />
+<h:form>
+	<h:dataTable id="actLogs" value="#{activityLogM.getActivityLogList()}" var="actLog"
+			border="1" >
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="activity_id" />
+				</f:facet>
+				<h:outputText value="#{actLog.activity_id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="type" />
+				</f:facet>
+				<h:outputText value="#{actLog.type}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="activity_type_id" />
+				</f:facet>
+				<h:outputText value="#{actLog.activity_type_id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="status" />
+				</f:facet>
+				<h:outputText value="#{actLog.status}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="parent_id" />
+				</f:facet>
+				<h:outputText value="#{actLog.parent_id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="result" />
+				</f:facet>
+				<h:outputText value="#{actLog.result}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="cpe_id" />
+				</f:facet>
+				<h:outputText value="#{actLog.cpe_id}" />
+			</h:column>
+
+		</h:dataTable>
+</h:form>
+</body>
+</html>

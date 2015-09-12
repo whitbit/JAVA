@@ -1,0 +1,1 @@
+java -Djava.rmi.server.codebase=http://127.0.0.1/shared/ -Djava.rmi.server.hostname=127.0.0.1 -Djava.security.policy=java.policy RMITestServer.MeetingServer

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="elvenar.model.db.units.unit.Unit" table="unit">
+		<id name="unitId" type="int" column="id">
+			<generator class="increment" />
+		</id>
+		<property name="damageMinimal">
+			<column name="damageMinimal" />
+		</property>
+		<property name="damageMaximum">
+			<column name="damageMaximum" />
+		</property>
+		<property name="hitpoints">
+			<column name="hitpoints" />
+		</property>
+		<property name="weight">
+			<column name="weight" />
+		</property>
+		<property name="movementRange">
+			<column name="movementRange" />
+		</property>
+		<property name="attackRange">
+			<column name="attackRange" />
+		</property>
+		<property name="initiative">
+			<column name="initiative" />
+		</property>
+		<property name="strikeBack">
+			<column name="strikeBack" />
+		</property>
+		<property name="attackBonus_1_Value">
+			<column name="attackBonus_1_Value" />
+		</property>
+		<property name="defenseBonus_1_Value">
+			<column name="defenseBonus_1_Value" />
+		</property>
+		<property name="attackBonus_2_Value">
+			<column name="attackBonus_2_Value" />
+		</property>
+		<property name="defenseBonus_2_Value">
+			<column name="defenseBonus_2_Value" />
+		</property>
+		<property name="specialAbilityValue">
+			<column name="specialAbilityValue" />
+		</property>
+		<property name="promotion">
+			<column name="promotion" />
+		</property>
+		<property name="unitType">
+			<column name="unitType" />
+		</property>
+		<property name="unitClass">
+			<column name="unitClass" />
+		</property>
+		<property name="race">
+			<column name="race" />
+		</property>
+		<property name="attackBonus_1_Type">
+			<column name="attackBonus_1_Type" />
+		</property>
+		<property name="defensBonus_1_Type">
+			<column name="defensBonus_1_Type" />
+		</property>
+		<property name="attackBonus_2_Type">
+			<column name="attackBonus_2_Type" />
+		</property>
+		<property name="defensBonus_2_Type">
+			<column name="defensBonus_2_Type" />
+		</property>
+		<property name="specialAbilityType">
+			<column name="specialAbilityType" />
+		</property>
+	</class>
+</hibernate-mapping>

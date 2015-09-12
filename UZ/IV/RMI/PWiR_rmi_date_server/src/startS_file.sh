@@ -1,0 +1,1 @@
+java -Djava.rmi.server.codebase=file:///export/home/students/java1/workspace/PWiR_W01d-RMI_date_server/bin/ -Djava.rmi.server.hostname=127.0.0.1 -Djava.security.policy=java.policy RMITestServer.MeetingServer

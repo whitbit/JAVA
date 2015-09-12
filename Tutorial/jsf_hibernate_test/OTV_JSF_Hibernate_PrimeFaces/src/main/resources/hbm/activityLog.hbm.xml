@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="pmp.ActivityLog" table="activity_log">
+		<id name="id" type="int" column="id">
+			<generator class="increment" />
+		</id>
+
+		<property name="activity_id">
+			<column name="activity_id" />
+		</property>
+		<property name="parent_id">
+			<column name="parent_id" />
+		</property>
+		<property name="type">
+			<column name="type" />
+		</property>
+		<property name="category_id">
+			<column name="category_id" />
+		</property>
+		<property name="activity_type_id">
+			<column name="activity_type_id" />
+		</property>
+		<property name="status">
+			<column name="status" />
+		</property>
+		<property name="line_number">
+			<column name="line_number" />
+		</property>
+		<property name="area">
+			<column name="area" />
+		</property>
+		<property name="result">
+			<column name="result" />
+		</property>
+		<property name="result_parameters">
+			<column name="result_parameters" />
+		</property>
+		<property name="cpe_id">
+			<column name="cpe_id" />
+		</property>
+	</class>
+</hibernate-mapping>

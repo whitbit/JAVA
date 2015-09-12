@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JSF_Hibernate_Company</title>
+</h:head>
+
+
+<body>
+
+	<h:form>
+		<h:button id="backToIndex" value="Back To Index" outcome="index" />
+		<h:panelGrid column="2">
+			<h:outputLabel for="name" value="Name: " />
+			<h:inputText id="name" value="#{employeeDAO.name}" />
+
+			<h:outputLabel for="surname" value="Surname: " />
+			<h:inputText id="surname" value="#{employeeDAO.surname}" />
+
+			<h:outputLabel for="city" value="City: " />
+			<h:inputText id="city" value="#{employeeDAO.city}" />
+
+			<h:outputLabel for="age" value="Age: " />
+			<h:inputText id="age" value="#{employeeDAO.age}" />
+
+			<h:outputLabel for="profession" value="Profession: " />
+			<h:inputText id="profession" value="#{employeeDAO.profession}" />
+
+			<h:outputLabel for="branch" value="Branch: " />
+			<h:inputText id="branch" value="#{employeeDAO.branch}" />
+
+			<h:outputLabel for="salary" value="Salary: " />
+			<h:inputText id="salary" value="#{employeeDAO.salary}" />
+			
+			<h:outputLabel for="birthdate" value="Birthdate: " />
+			<h:inputText id="birthdate" value="#{employeeDAO.birthdate}" />
+		</h:panelGrid>
+		<h:commandButton id="submit" value="Add Employee" action="#{employeeDAO.addEmployee()}" ajax="false" />
+
+	</h:form>
+	
+</body>
+
+
+</html>

@@ -1,0 +1,144 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema SAMPLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema SAMPLE
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `SAMPLE` ;
+USE `SAMPLE` ;
+
+-- -----------------------------------------------------
+-- Table `SAMPLE`.`DEPARTMENT`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SAMPLE`.`DEPARTMENT` (
+  `DEPTNO` CHAR(3) NOT NULL,
+  `DEPTNAME` VARCHAR(36) NULL,
+  `MGRNO` CHAR(6) NULL,
+  `ADMRDEPT` CHAR(3) NULL,
+  `LOCATION` CHAR(16) NULL,
+  PRIMARY KEY (`DEPTNO`),
+  INDEX `mgrno-empno_idx` (`MGRNO` ASC),
+  INDEX `admrdept-workdept_idx` (`ADMRDEPT` ASC),
+  CONSTRAINT `mgrno-empno`
+    FOREIGN KEY (`MGRNO`)
+    REFERENCES `SAMPLE`.`EMPLOYEE` (`EMPNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `admrdept-workdept`
+    FOREIGN KEY (`ADMRDEPT`)
+    REFERENCES `SAMPLE`.`EMPLOYEE` (`WORKDEPT`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SAMPLE`.`EMPLOYEE`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SAMPLE`.`EMPLOYEE` (
+  `EMPNO` CHAR(6) NOT NULL,
+  `FIRSTNAME` VARCHAR(12) NULL,
+  `MIDINT` CHAR(1) NULL,
+  `LASTNAME` VARCHAR(15) NULL,
+  `WORKDEPT` CHAR(3) NULL,
+  `PHONENO` CHAR(4) NULL,
+  `HIREDATE` DATE NULL,
+  `JOB` CHAR(8) NULL,
+  `EDLEVEL` SMALLINT NULL,
+  `SEX` CHAR(1) NULL,
+  `BIRTHDATE` DATE NULL,
+  `SALARY` DECIMAL(9,2) NULL,
+  `BONUS` DECIMAL(9,2) NULL,
+  `COMM` DECIMAL(9,2) NULL,
+  PRIMARY KEY (`EMPNO`),
+  INDEX `workdept-deptno_idx` (`WORKDEPT` ASC),
+  CONSTRAINT `workdept-deptno`
+    FOREIGN KEY (`WORKDEPT`)
+    REFERENCES `SAMPLE`.`DEPARTMENT` (`DEPTNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SAMPLE`.`PROJACT`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SAMPLE`.`PROJACT` (
+  `PROJNO` CHAR(6) NOT NULL,
+  `ACTNO` SMALLINT NOT NULL,
+  `ACSTDATE` DATE NOT NULL,
+  `ACSTAFF` DECIMAL(5,2) NULL,
+  `ACENDATE` DATE NULL,
+  PRIMARY KEY (`ACTNO`, `ACSTDATE`, `PROJNO`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SAMPLE`.`PROJECT`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SAMPLE`.`PROJECT` (
+  `PROJNO` CHAR(6) NOT NULL,
+  `PROJNAME` VARCHAR(24) NULL,
+  `DEPTNO` CHAR(3) NULL,
+  `RESPEMP` CHAR(6) NULL,
+  `PRSTAFF` DECIMAL(5,2) NULL,
+  `PRSTDATE` DATE NULL,
+  `PRENDATE` DATE NULL,
+  `MAJPROJ` CHAR(6) NULL,
+  PRIMARY KEY (`PROJNO`),
+  INDEX `deptno-deptno_idx` (`DEPTNO` ASC),
+  INDEX `respemp-empno_idx` (`RESPEMP` ASC),
+  INDEX `majproj-projno_idx` (`MAJPROJ` ASC),
+  CONSTRAINT `deptno-deptno`
+    FOREIGN KEY (`DEPTNO`)
+    REFERENCES `SAMPLE`.`DEPARTMENT` (`DEPTNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `respemp-empno`
+    FOREIGN KEY (`RESPEMP`)
+    REFERENCES `SAMPLE`.`EMPLOYEE` (`EMPNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `majproj-projno`
+    FOREIGN KEY (`MAJPROJ`)
+    REFERENCES `SAMPLE`.`PROJACT` (`PROJNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SAMPLE`.`EMPPROJACT`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SAMPLE`.`EMPPROJACT` (
+  `EMPNO` CHAR(6) NOT NULL,
+  `PROJNO` CHAR(6) NULL,
+  `ACTNO` SMALLINT NULL,
+  `EMPTIME` DECIMAL(5,2) NULL,
+  `EMSTDATE` DATE NULL,
+  `EMENDATE` DATE NULL,
+  INDEX `projno-projno_idx` (`PROJNO` ASC),
+  INDEX `actno-actno_idx` (`ACTNO` ASC),
+  CONSTRAINT `projno-projno`
+    FOREIGN KEY (`PROJNO`)
+    REFERENCES `SAMPLE`.`PROJACT` (`PROJNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `actno-actno`
+    FOREIGN KEY (`ACTNO`)
+    REFERENCES `SAMPLE`.`PROJACT` (`ACTNO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

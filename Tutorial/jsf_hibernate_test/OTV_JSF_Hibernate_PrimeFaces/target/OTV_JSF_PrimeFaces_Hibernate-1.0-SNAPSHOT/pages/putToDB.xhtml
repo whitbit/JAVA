@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>PMP Test - Put to db</title>
+</h:head>
+<body>
+	<h:form>
+		<h:button id="backToIndex" value="Back To Index" outcome="index" />
+		<h:panelGrid>
+			<h:outputLabel for="activity_id" value="activity_id: " />
+			<h:inputText id="activity_id" value="#{activityLogM.activity_id}" />
+
+			<h:outputLabel for="type" value="type: " />
+			<h:inputText id="type" value="#{activityLogM.type}" />
+
+			<h:outputLabel for="category_id" value="category_id: " />
+			<h:inputText id="category_id" value="#{activityLogM.category_id}" />
+
+			<h:outputLabel for="activity_type_id" value="activity_type_id: " />
+			<h:inputText id="activity_type_id"
+				value="#{activityLogM.activity_type_id}" />
+
+			<h:outputLabel for="status" value="status: " />
+			<h:inputText id="status" value="#{activityLogM.status}" />
+
+			<h:outputLabel for="parent_id" value="parent_id: " />
+			<h:inputText id="parent_id" value="#{activityLogM.parent_id}" />
+
+			<h:outputLabel for="line_number" value="line_number: " />
+			<h:inputText id="line_number" value="#{activityLogM.line_number}" />
+
+			<h:outputLabel for="area" value="area: " />
+			<h:inputText id="area" value="#{activityLogM.area}" />
+
+			<h:outputLabel for="result" value="result: " />
+			<h:inputText id="result" value="#{activityLogM.result}" />
+
+			<h:outputLabel for="result_parameters" value="result_parameters: " />
+			<h:inputText id="result_parameters"
+				value="#{activityLogM.result_parameters}" />
+
+			<h:outputLabel for="cpe_id" value="cpe_id: " />
+			<h:inputText id="cpe_id" value="#{activityLogM.cpe_id}" />
+		</h:panelGrid>
+
+
+		<h:commandButton id="submit" value="Save"
+			action="#{activityLogM.putToDB()}" ajax="false" />
+
+	</h:form>
+</body>
+</html>
