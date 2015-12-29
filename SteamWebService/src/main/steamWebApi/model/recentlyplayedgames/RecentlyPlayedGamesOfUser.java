@@ -22,7 +22,7 @@ public class RecentlyPlayedGamesOfUser extends SteamUserSingle implements ISteam
 		super();
 		this.initialize( steamID );
 	}
-	public RecentlyPlayedGamesOfUser( String steamID, int count ) {
+	public RecentlyPlayedGamesOfUser( String steamID, Integer count ) {
 		super();
 		this.count = count;
 		this.initialize( steamID );

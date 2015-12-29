@@ -1,5 +1,6 @@
 package model.base.steamuser;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.base.api.SteamWebApi;
 /**
@@ -10,6 +11,17 @@ public abstract class SteamUserList extends SteamWebApi {
 	public SteamUserList( List< String > steamIDs ) {
 		super();
 		this.initialize( steamIDs );
+	}
+	public SteamUserList( String... steamIDsParams ) {
+		super();		
+		this.initialize( convertListFromParams( steamIDsParams ) );
+	}
+	private List< String > convertListFromParams( String... steamIDsParams ) {
+		List< String > list = new ArrayList<String >();
+		for( String id : steamIDsParams ) {
+			list.add( id );
+		}
+		return list;
 	}
 	/**
 	 * Method to initialize specific request type using list of steam ids.

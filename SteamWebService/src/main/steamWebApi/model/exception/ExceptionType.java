@@ -15,7 +15,10 @@ public enum ExceptionType {
 	
 	STEAM_ID_IS_NULL( "Steam ID is null.", 3, 201 ),
 	RELATIONSHIP_IS_NULL( "Relationship is null.", 3, 202 ),
-	LANGUAGE_IS_NULL( "Language is null.", 3, 203 );
+	LANGUAGE_IS_NULL( "Language is null.", 3, 203 ),
+	
+	STEAM_WRONG_FORMAT( "Steam ID has wrong format.", 4, 305 ),
+	STEAM_NUMBER_FORMAT_IS_TO_SHORT_OR_TO_LONG( "Steam ID is too long or too short numeric format.", 4, 310 );
 	
 	
 	private String errorName;

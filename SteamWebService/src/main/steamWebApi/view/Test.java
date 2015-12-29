@@ -2,63 +2,58 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-
-import org.apache.log4j.Level;
-
-import model.base.api.SteamWebApi;
-import controller.friends.FriendsManager;
-import controller.globalachievementpercentagesforapp.GlobalAchievementsPercentagesForAppManager;
-import controller.isplayingsharedgames.IsPlayingSharedGamesManager;
-import controller.newsforapp.NewsOfAppManager;
-import controller.ownedgames.OwnedGamesManager;
-import controller.playerachievements.PlayerAchievementsManager;
-import controller.playerbans.PlayerBansManager;
-import controller.playersummaries.PlayerSummariesManager;
-import controller.recentlyplayedgames.RecentlyPlayedGamesManager;
-import controller.schemaforgame.SchemaForGameManager;
-import controller.userstatsforgame.StatsForGameManager;
+import controller.friends.FriendsControl;
+import controller.globalachievementpercentagesforapp.GlobalAchievementsPercentageForAppControl;
+import controller.isplayingsharedgames.IsPlayingSharedGamesControl;
+import controller.newsforapp.NewsForAppControl;
+import controller.ownedgames.OwnedGamesControl;
+import controller.playerachievements.PlayerAchievementsControl;
+import controller.playerbans.PlayerBansControl;
+import controller.playersummaries.PlayerSummariesControl;
+import controller.recentlyplayedgames.RecentlyPlayedGamesControl;
+import controller.schemaforgame.SchemaForGameControl;
+import controller.userstatsforgame.StatsForGameControl;
 
 public class Test {
 	private static String steamID = "STEAM_0:1:36390398";
 	
 	public static void main( String[] args ) {
-		friends();
+		ownedGames();
 	}
-
+	
 	public static void ownedGames() {
-		OwnedGamesManager games = new OwnedGamesManager( steamID );
+		OwnedGamesControl games = new OwnedGamesControl.Builder( steamID ).build();
 		System.out.println( "\n" + games.getGamesCount() + "\n" );
 		for( com.lukaspradel.steamapi.data.json.ownedgames.Game g : games.getGamesList() ) {
 			System.out.println( g.getAppid() + "::" + g.getName() );
 		}
 	}
 	public static void recentlyGames() {
-		RecentlyPlayedGamesManager games = new RecentlyPlayedGamesManager( steamID );
+		RecentlyPlayedGamesControl games = new RecentlyPlayedGamesControl.Builder( steamID ).build();
 		for( com.lukaspradel.steamapi.data.json.recentlyplayedgames.Game g : games.getRecentlyPlayedGamesList() ) {
 			System.out.println( g.getAppid() + "::" + g.getName() );
 		}
 	}
 	public static void friends() {
-		FriendsManager friends = new FriendsManager( steamID );
-		for( com.lukaspradel.steamapi.data.json.friendslist.Friend f : friends.getFriends() ) {
+		FriendsControl friends = new FriendsControl.Builder( steamID ).build();
+		for( com.lukaspradel.steamapi.data.json.friendslist.Friend f : friends.getFriendsList() ) {
 			System.out.println( f.getSteamid() + "::" + f.getRelationship() );
 		}
 	}
 	public static void statsForUserGames() {
-		StatsForGameManager games = new StatsForGameManager( steamID, 34870, "polish" );
-		for( com.lukaspradel.steamapi.data.json.playerstats.Achievement s : games.getAchievements() ) {
+		StatsForGameControl games = new StatsForGameControl.Builder( steamID ).setAppID( 34870 ).setLanguage( "polish" ).build();
+		for( com.lukaspradel.steamapi.data.json.playerstats.Achievement s : games.getAchievementsList() ) {
 			System.out.println( s.getName() + " : " + s.getAchieved() );
 		}
 	}
 	public static void playerAchievements() {
-		PlayerAchievementsManager games = new PlayerAchievementsManager( steamID, 34870, "polish" );
-		for( com.lukaspradel.steamapi.data.json.playerachievements.Achievement a : games.getAchievements() ) {
+		PlayerAchievementsControl games = new PlayerAchievementsControl.Builder( steamID ).setAppID( 34870 ).setLanguage( "polish" ).build();
+		for( com.lukaspradel.steamapi.data.json.playerachievements.Achievement a : games.getAchievementsList() ) {
 			System.out.println( a.getApiname() + " : " + a.getAchieved() + a.getAdditionalProperties() );
 		}
 	}
 	public static void sharedGames() {
-		IsPlayingSharedGamesManager games = new IsPlayingSharedGamesManager( steamID, 34870 );
+		IsPlayingSharedGamesControl games = new IsPlayingSharedGamesControl.Builder( steamID ).setAppID( 34870 ).build();
 		
 		System.out.println( games.getLenderSteamID() );
 	}
@@ -66,8 +61,10 @@ public class Test {
 		List< String > players = new ArrayList< String >();
 		players.add( steamID );
 		players.add( "76561198241361076" );
-		PlayerBansManager games = new PlayerBansManager( players );
-		for( com.lukaspradel.steamapi.data.json.getplayerbans.Player p : games.getPlayerBans() ) {
+			
+		//PlayerBansControl games = new PlayerBansControl.Builder( players ).build();
+		PlayerBansControl games = new PlayerBansControl.Builder( steamID, "76561198241361076" ).build();
+		for( com.lukaspradel.steamapi.data.json.getplayerbans.Player p : games.getPlayerBansList() ) {
 			System.out.println( p.getSteamId() + " : " + p.getVACBanned() );
 		}
 	}
@@ -75,26 +72,28 @@ public class Test {
 		List< String > players = new ArrayList< String >();
 		players.add( steamID );
 		players.add( "76561198241361076" );
-		PlayerSummariesManager games = new PlayerSummariesManager( players );
-		for( com.lukaspradel.steamapi.data.json.playersummaries.Player p : games.getPlayerSummary() ) {
+		
+		//PlayerSummariesControl games = new PlayerSummariesControl.Builder( players ).build();
+		PlayerSummariesControl games = new PlayerSummariesControl.Builder( steamID, "76561198241361076" ).build();
+		for( com.lukaspradel.steamapi.data.json.playersummaries.Player p : games.getPlayerSummaryList() ) {
 			System.out.println( p.getSteamid() + " : " + p.getRealname() );
 		}
 	}
 	public static void globalAchievementsPercentagesForAppManager() {
-		GlobalAchievementsPercentagesForAppManager games = new GlobalAchievementsPercentagesForAppManager( 34870 );
-		for( com.lukaspradel.steamapi.data.json.achievementpercentages.Achievement a : games.getGlobalAchievementPercentagesForAppList() ) {
+		GlobalAchievementsPercentageForAppControl games = new GlobalAchievementsPercentageForAppControl.Builder( 34870 ).build();
+		for( com.lukaspradel.steamapi.data.json.achievementpercentages.Achievement a : games.getGlobalAchievementPercentagesList() ) {
 			System.out.println( a.getName() + " : " + a.getPercent() );
 		}
 	}
 	public static void newsOfAppManager() {
-		NewsOfAppManager games = new NewsOfAppManager( 34870 );
-		for( com.lukaspradel.steamapi.data.json.appnews.Newsitem n : games.getNews() ) {
+		NewsForAppControl games = new NewsForAppControl.Builder( 34870 ).setCount( 1 ).setMaxLength( 22 ).build();
+		for( com.lukaspradel.steamapi.data.json.appnews.Newsitem n : games.getNewsList() ) {
 			System.out.println( n.getTitle() + " : " + n.getContents() );
 		}
 	}
 	public static void schemaForGame() {
-		SchemaForGameManager games = new SchemaForGameManager( 34870 );
-		for( com.lukaspradel.steamapi.data.json.getschemaforgame.Achievement g : games.getAchievementsOfGame() ) {
+		SchemaForGameControl games = new SchemaForGameControl.Builder( 34870 ).build();
+		for( com.lukaspradel.steamapi.data.json.getschemaforgame.Achievement g : games.getAchievementsList() ) {
 			System.out.println( g.getDisplayName() + " : " + g.getDefaultvalue() );
 		}
 	}

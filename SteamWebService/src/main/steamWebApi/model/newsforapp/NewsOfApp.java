@@ -20,7 +20,7 @@ public class NewsOfApp extends SteamApp implements ISteamNewsOfApp {
 		super();
 		this.initialize( appID );
 	}
-	public NewsOfApp( int appID, int count, int maxLength ) {
+	public NewsOfApp( int appID, Integer count, Integer maxLength ) {
 		super();
 		this.count = count;
 		this.maxLength = maxLength;

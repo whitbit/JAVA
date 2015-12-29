@@ -20,6 +20,9 @@ public class BansOfUser extends SteamUserList implements ISteamBans {
 	public BansOfUser( List< String > steamIDs ) {
 		super( steamIDs );
 	}
+	public BansOfUser( String... steamIDsParams ) {
+		super( steamIDsParams );
+	}
 	
 	@Override
 	protected void setRequest( List< String > steamIDs ) {

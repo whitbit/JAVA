@@ -51,12 +51,52 @@ public class SteamID {
 	 */
 	private long convertFromX32ToX64( String steamID ) throws WrongValueException {
 		if( steamID != null ) {
-			String[] idX32 = steamID.substring( 8 ).split( ":" );	        
-	        return Long.valueOf( idX32[ 0 ] ) + Long.valueOf( idX32[ 1 ] ) * 2 + 76561197960265728L;
+			String[] idX32 = steamID.substring( 8 ).split( ":" );		
+			return Long.valueOf( idX32[ 0 ] ) + Long.valueOf( idX32[ 1 ] ) * 2 + 76561197960265728L;
 		} else {
 			throw new WrongValueException( ExceptionType.STEAM_ID_IS_NULL );
 		} 
-    }
+    }	
+	/**
+	 * Check if steam id as string starts with "STEAM_" to be possible to convert.
+	 * @param steamID
+	 * @return true/false
+	 */
+	private boolean startWithBaseSteamText( String steamID ) {
+		if( steamID.trim().startsWith( STEAM_BASE_BEGIN ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/**
+	 * Check if steam id as long numeric format is builded with only numbers
+	 * @param steamID
+	 * @return true/false
+	 * @throws WrongValueException
+	 */
+	private boolean isNumeric( String steamID ) throws WrongValueException {
+		for( char c : steamID.toCharArray() ) {
+			if( !Character.isDigit( c ) ) {
+				throw new WrongValueException( ExceptionType.STEAM_WRONG_FORMAT );
+			}
+		}	
+	    return true;
+	}
+	/**
+	 * Check if steam id as long numeric format is 17 numbers builded. 
+	 * @param steamID
+	 * @return true/false
+	 * @throws WrongValueException
+	 */
+	private boolean startWithLongNumber( String steamID ) throws WrongValueException {
+		if( steamID.length() < 17 || steamID.length() > 17 ) {
+			throw new WrongValueException( ExceptionType.STEAM_NUMBER_FORMAT_IS_TO_SHORT_OR_TO_LONG );
+		} else {
+			isNumeric( steamID );
+		}	
+	    return true;
+	}
 	/**
 	 * Method for validate input String by user and to set correct type of Steam ID.
 	 * @param steamID
@@ -64,10 +104,12 @@ public class SteamID {
 	 */
 	private String validateID( String steamID ) throws WrongValueException {
 		if( steamID != null ) {
-			if( steamID.trim().startsWith( STEAM_BASE_BEGIN ) ) {
+			if( startWithBaseSteamText( steamID ) ) {
 				return String.valueOf( convertFromX32ToX64( steamID ) );
-			} else {
+			} else if( startWithLongNumber( steamID ) ) {
 				return String.valueOf( steamIdLong( steamID ) );
+			} else {
+				throw new WrongValueException( ExceptionType.STEAM_WRONG_FORMAT );
 			}
 		} else {
 			throw new WrongValueException( ExceptionType.STEAM_ID_IS_NULL );
