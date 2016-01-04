@@ -18,7 +18,7 @@ public class Test {
 	private static String steamID = "STEAM_0:1:36390398";
 	
 	public static void main( String[] args ) {
-		ownedGames();
+		playerAchievements();
 	}
 	
 	public static void ownedGames() {
@@ -43,7 +43,7 @@ public class Test {
 	public static void statsForUserGames() {
 		StatsForGameControl games = new StatsForGameControl.Builder( steamID ).setAppID( 34870 ).setLanguage( "polish" ).build();
 		for( com.lukaspradel.steamapi.data.json.playerstats.Achievement s : games.getAchievementsList() ) {
-			System.out.println( s.getName() + " : " + s.getAchieved() );
+			System.out.println( s.getName() + " : " + s.getAchieved() + s.getAdditionalProperties() );
 		}
 	}
 	public static void playerAchievements() {

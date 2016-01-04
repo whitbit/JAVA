@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-  http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>SteamWebService</groupId>
@@ -10,8 +9,8 @@
 	<name>SteamWebService</name>
 	<url>http://maven.apache.org</url>
 
+
 	<dependencies>
-	
 		<!-- JSF library -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -51,20 +50,44 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
 		<!-- Steam API library -->
 		<dependency>
 			<groupId>com.lukaspradel</groupId>
 			<artifactId>steam-web-api</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.go-ive</groupId>
+			<artifactId>steam-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<!-- JSon library -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20151123</version>
-		</dependency>		
-		
+		</dependency>
 	</dependencies>
-	
-	
+
+
 </project>
