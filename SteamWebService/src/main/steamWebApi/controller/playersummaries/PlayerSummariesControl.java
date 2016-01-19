@@ -15,11 +15,11 @@ import controller.base.BuildWithResponseController;
  * @author M.Mucha
  */
 public class PlayerSummariesControl extends BuildWithResponseController {
-	private static ISteamSummariesOfUser summariesOfUser;
+	private ISteamSummariesOfUser summariesOfUser;
 
 	public PlayerSummariesControl() {}
 	private PlayerSummariesControl( Builder builder ) {
-		summariesOfUser = builder.initialize();
+		this.summariesOfUser = builder.initialize();
 	}
 
 	/**

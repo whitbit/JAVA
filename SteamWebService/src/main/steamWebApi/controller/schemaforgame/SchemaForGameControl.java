@@ -16,11 +16,11 @@ import controller.base.BuildController;
  * @author M.Mucha
  */
 public class SchemaForGameControl extends BuildController {
-	private static ISteamSchemaForGame schemaOfGame;
+	private ISteamSchemaForGame schemaOfGame;
 
 	public SchemaForGameControl() {}
 	private SchemaForGameControl( Builder builder ) {
-		schemaOfGame = builder.initialize();
+		this.schemaOfGame = builder.initialize();
 	}
 
 	/**

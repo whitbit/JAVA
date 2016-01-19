@@ -16,11 +16,11 @@ import model.friends.ISteamFriends;
  * @author M.Mucha
  */
 public class FriendsControl extends BuildController {
-	private static ISteamFriends friendsOfUser = null;
+	private ISteamFriends friendsOfUser = null;
 
 	public FriendsControl() {}
 	private FriendsControl( Builder builder ) {
-		friendsOfUser = builder.initialize();
+		this.friendsOfUser = builder.initialize();
 	}
 
 	/**

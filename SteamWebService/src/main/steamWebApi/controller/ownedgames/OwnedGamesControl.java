@@ -14,11 +14,11 @@ import controller.base.BuildWithResponseController;
  * @author M.Mucha
  */
 public class OwnedGamesControl extends BuildWithResponseController {
-	private static ISteamOwnedGames ownedGamesOfUser;
+	private ISteamOwnedGames ownedGamesOfUser;
 
 	public OwnedGamesControl() {}
 	private OwnedGamesControl( Builder builder ) {
-		ownedGamesOfUser = builder.initialize();
+		this.ownedGamesOfUser = builder.initialize();
 	}
 
 	/**

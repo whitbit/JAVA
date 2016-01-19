@@ -13,11 +13,11 @@ import controller.base.BuildController;
  * @author M.Mucha
  */
 public class PlayerBansControl extends BuildController {
-	private static ISteamBans bansOfUser;
+	private ISteamBans bansOfUser;
 	
 	public PlayerBansControl() {}
 	private PlayerBansControl( Builder builder ) {
-		bansOfUser = builder.initialize();
+		this.bansOfUser = builder.initialize();
 	}
 
 	/**

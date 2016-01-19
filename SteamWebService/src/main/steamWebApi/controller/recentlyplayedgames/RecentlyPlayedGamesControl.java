@@ -15,11 +15,11 @@ import controller.base.BuildWithResponseController;
  * @author M.Mucha
  */
 public class RecentlyPlayedGamesControl extends BuildWithResponseController {
-	private static ISteamRecentlyPlayedGames recentlyPlayedGamesOfUser;
+	private ISteamRecentlyPlayedGames recentlyPlayedGamesOfUser;
 
 	public RecentlyPlayedGamesControl() {}
 	private RecentlyPlayedGamesControl( Builder builder ) {
-		recentlyPlayedGamesOfUser = builder.initialize();
+		this.recentlyPlayedGamesOfUser = builder.initialize();
 	}
 	
 	/**

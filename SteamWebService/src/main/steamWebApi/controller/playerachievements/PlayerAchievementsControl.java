@@ -1,12 +1,11 @@
 package controller.playerachievements;
 
 import java.util.List;
-
 import com.lukaspradel.steamapi.data.json.playerachievements.Achievement;
 import com.lukaspradel.steamapi.data.json.playerachievements.GetPlayerAchievements;
 import com.lukaspradel.steamapi.data.json.playerachievements.Playerstats;
 import com.lukaspradel.steamapi.webapi.request.GetPlayerAchievementsRequest;
-
+import model.base.language.Language;
 import model.exception.connection.ConnectionException;
 import model.playerachievements.AchievementsOfUser;
 import model.playerachievements.ISteamPlayerAchievements;
@@ -47,8 +46,8 @@ public class PlayerAchievementsControl extends BuildController {
 		 * @param language
 		 * @return Builder
 		 */
-		public Builder setLanguage( String language ) {
-			this.language = language;
+		public Builder setLanguage( Language language ) {
+			this.language = language.getName();
 			return this;
 		}
 		

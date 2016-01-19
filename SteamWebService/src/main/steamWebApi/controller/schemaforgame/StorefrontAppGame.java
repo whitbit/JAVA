@@ -13,11 +13,11 @@ import com.github.goive.steamapi.data.SupportInfo;
  * @author M.Mucha
  */
 public class StorefrontAppGame {
-	private static StorefrontApi storefrontApi = null;
+	private StorefrontApi storefrontApi = null;
 	
 	public StorefrontAppGame() {}
 	private StorefrontAppGame( Builder builder ) {
-		storefrontApi = builder.storefrontApi;
+		this.storefrontApi = builder.storefrontApi;
 	}
 	
 	/**

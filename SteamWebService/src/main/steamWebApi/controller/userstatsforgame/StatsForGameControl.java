@@ -6,6 +6,7 @@ import com.lukaspradel.steamapi.data.json.playerstats.GetUserStatsForGame;
 import com.lukaspradel.steamapi.data.json.playerstats.Playerstats;
 import com.lukaspradel.steamapi.data.json.playerstats.Stat;
 import com.lukaspradel.steamapi.webapi.request.GetUserStatsForGameRequest;
+import model.base.language.Language;
 import model.exception.connection.ConnectionException;
 import model.userstatsforgame.ISteamStatsForGame;
 import model.userstatsforgame.StatsForGameOfUser;
@@ -46,8 +47,8 @@ public class StatsForGameControl extends BuildController {
 		 * @param language
 		 * @return Builder
 		 */
-		public Builder setLanguage( String language ) {
-			this.language = language;
+		public Builder setLanguage( Language language ) {
+			this.language = language.getName();
 			return this;
 		}
 		
